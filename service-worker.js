@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Tydotbaba/solar-pv/precache-manifest.3f24f41385342d9ad1ecc7672e894964.js"
+  "/solar-pv/precache-manifest.bc28e05a569aa3ec78eb54ec40a772b9.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/Tydotbaba/solar-pv/index.html", {
+workbox.routing.registerNavigationRoute("/solar-pv/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
