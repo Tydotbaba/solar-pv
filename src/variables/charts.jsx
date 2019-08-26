@@ -70,6 +70,7 @@ let chart1_2_options = {
   }
 };
 
+
 // #########################################
 // // // used inside src/views/Dashboard.jsx
 // #########################################
@@ -114,7 +115,7 @@ let chartExample1 = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 5,
-          data: [100, 70, 90, 70, 85, 60, 75, 60, 90, 80, 110, 100]
+          data: {insolationDataArray}
         }
       ]
     };
@@ -419,9 +420,22 @@ const chartExample4 = {
   }
 };
 
+//site location
+let location = {
+  lat: 8.5705,
+  long: 8.3088
+}
+
+
+// insolation data array
+let insolationDataArray = []
+
+
 module.exports = {
   chartExample1, // in src/views/Dashboard.jsx
   chartExample2, // in src/views/Dashboard.jsx
   chartExample3, // in src/views/Dashboard.jsx
-  chartExample4 // in src/views/Dashboard.jsx
+  chartExample4, // in src/views/Dashboard.jsx
+  location,
+  insolationDataArray
 };

@@ -36,7 +36,7 @@ ReactDOM.render(
       {
       	//<Route path="/rtl" render={props => <RTLLayout {...props} />} />
   	  }
-      <Redirect from="/" to="/admin/dashboard" />
+      <Redirect from="/" to="/admin/solarModel" />
     </Switch>
   </Router>,
   document.getElementById("root")

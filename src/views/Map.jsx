@@ -24,14 +24,22 @@ import {
   Marker
 } from "react-google-maps";
 
+
+// core components
+import {
+  location
+} from "variables/charts.jsx";
+
 // reactstrap components
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 
 const MapWrapper = withScriptjs(
   withGoogleMap(props => (
+    // lat = location.lat
+    // long = location.long
     <GoogleMap
       defaultZoom={13}
-      defaultCenter={{ lat: 40.748817, lng: -73.985428 }}
+      defaultCenter={{ lat: location.lat, lng: location.long }}
       defaultOptions={{
         scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
         styles: [
@@ -299,7 +307,7 @@ class Map extends React.Component {
                     style={{ position: "relative", overflow: "hidden" }}
                   >
                     <MapWrapper
-                      googleMapURL="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"
+                      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA10mGIAm9ed40zGoBEYv9pstATdQyrPkA"
                       loadingElement={<div style={{ height: `100%` }} />}
                       containerElement={<div style={{ height: `100%` }} />}
                       mapElement={<div style={{ height: `100%` }} />}

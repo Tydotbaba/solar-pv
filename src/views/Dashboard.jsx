@@ -55,507 +55,245 @@ class Dashboard extends React.Component {
     super(props);
     this.state = {
       bigChartData: "data1"
-    };
-  }
+    }
+  };
+
   setBgChartData = name => {
     this.setState({
       bigChartData: name
-    });
-  };
+    })
+  }
+
+  // componentDidMount () {
+  //   const st  = this.props.location.state
+  // }
+
   render() {
-    return (
-      <>
-        <div className="content">
-          <Row>
-            <Col xs="12">
-              <Card className="card-chart">
-                <CardHeader>
-                  <Row>
-                    <Col className="text-left" sm="6">
-                      <h5 className="card-category">Monthly Data</h5>
-                      <CardTitle tag="h2">Global Horizontal Irradiance (GHI)</CardTitle>
-                    </Col>
-                    <Col sm="6">
-                      
-                        {
-                          // <ButtonGroup
-                          //   className="btn-group-toggle float-right"
-                          //   data-toggle="buttons"
-                          // >
-                          //   <Button
-                          //     tag="label"
-                          //     className={classNames("btn-simple", {
-                          //       active: this.state.bigChartData === "data1"
-                          //     })}
-                          //     color="info"
-                          //     id="0"
-                          //     size="sm"
-                          //     onClick={() => this.setBgChartData("data1")}
-                          //   >
-                          //  <input
-                          //   defaultChecked
-                          //   className="d-none"
-                          //   name="options"
-                          //   type="radio"
-                          //     />
-                          //     <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          //       Accounts
-                          //     </span>
-                          //     <span className="d-block d-sm-none">
-                          //       <i className="tim-icons icon-single-02" />
-                          //     </span>
-                          //   </Button>
-                          //   <Button
-                          //     color="info"
-                          //     id="1"
-                          //     size="sm"
-                          //     tag="label"
-                          //     className={classNames("btn-simple", {
-                          //       active: this.state.bigChartData === "data2"
-                          //     })}
-                          //     onClick={() => this.setBgChartData("data2")}
-                          //   >
-                          //     <input
-                          //       className="d-none"
-                          //       name="options"
-                          //       type="radio"
-                          //     />
-                          //     <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          //       Purchases
-                          //     </span>
-                          //     <span className="d-block d-sm-none">
-                          //       <i className="tim-icons icon-gift-2" />
-                          //     </span>
-                          //   </Button>
-                          //   <Button
-                          //     color="info"
-                          //     id="2"
-                          //     size="sm"
-                          //     tag="label"
-                          //     className={classNames("btn-simple", {
-                          //       active: this.state.bigChartData === "data3"
-                          //     })}
-                          //     onClick={() => this.setBgChartData("data3")}
-                          //   >
-                          //     <input
-                          //       className="d-none"
-                          //       name="options"
-                          //       type="radio"
-                          //     />
-                          //     <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          //       Sessions
-                          //     </span>
-                          //     <span className="d-block d-sm-none">
-                          //       <i className="tim-icons icon-tap-02" />
-                          //     </span>
-                          //   </Button>
-                          // </ButtonGroup>
-                        }
-                         
-                    </Col>
-                  </Row>
-                </CardHeader>
-                <CardBody>
-                  <div className="chart-area">
-                    <Line
-                      data={chartExample1[this.state.bigChartData]}
-                      options={chartExample1.options}
-                    />
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
-          <Row>
-            <Col lg="4">
-              <Card className="card-chart">
-                <CardHeader>
-                  <h5 className="card-category">Data</h5>
-                  <CardTitle tag="h3">
-                    <i className="tim-icons icon-bell-55 text-info" />{" "}
-                      Solar Energy Yield
+    try{
+      const {
+        battery_capacity, 
+        number_of_modules, 
+        number_of_modules_in_series,
+        number_of_modules_in_parallel, 
+        siteName,
+        siteLatitude,
+        siteLongitude,
+        daily_dc_load,
+        time_per_day,
+        PV_nominal_voltage,
+        PV_system_losses,
+        Module_rated_current,
+        module_nominal_voltage,
+        daily_Ah_requirements,
+        daily_Ah_requirements_plus_losses,
+        equivalent_sun_hours,
+        total_solar_array_current,
+      } = this.props.location.state;
+
+      return (
+          <div className="content">
+            <Row>
+              <Col xs="12">
+                <Card className="card-chart">
+                  <CardHeader>
+                    <Row>
+                      <Col className="text-left" sm="6">
+                        <h5 className="card-category">Monthly Data</h5>
+                        <CardTitle tag="h2">All Sky Insolation Incident on a Horizontal Surface (kW-hr/m^2/day)</CardTitle>
+                      </Col>
+                    </Row>
+                  </CardHeader>
+                  <CardBody>
+                    <div className="chart-area">
+                      <Line
+                        data={chartExample1[this.state.bigChartData]}
+                        options={chartExample1.options}
+                      />
+                    </div>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+            <Row>
+              <Col lg="4">
+                <Card className="card-chart">
+                  <CardHeader>
+                    <h5 className="card-category">Data</h5>
+                    <CardTitle tag="h3">
+                      <i className="tim-icons icon-bell-55 text-info" />{" "}
+                        Solar Energy Yield
+                      </CardTitle>
+                  </CardHeader>
+                  <CardBody>
+                    <div className="chart-area">
+                      <Line
+                        data={chartExample2.data}
+                        options={chartExample2.options}
+                      />
+                    </div>
+                  </CardBody>
+                </Card>
+              </Col>
+              <Col lg="4">
+                <Card className="card-chart">
+                  <CardHeader>
+                    <h5 className="card-category">Data</h5>
+                    <CardTitle tag="h3">
+                      <i className="tim-icons icon-delivery-fast text-primary" />{" "}
+                      Relative Humidity
                     </CardTitle>
-                </CardHeader>
-                <CardBody>
-                  <div className="chart-area">
-                    <Line
-                      data={chartExample2.data}
-                      options={chartExample2.options}
-                    />
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
-            <Col lg="4">
-              <Card className="card-chart">
-                <CardHeader>
-                  <h5 className="card-category">Data</h5>
-                  <CardTitle tag="h3">
-                    <i className="tim-icons icon-delivery-fast text-primary" />{" "}
-                    Relative Humidity
-                  </CardTitle>
-                </CardHeader>
-                <CardBody>
-                  <div className="chart-area">
-                    <Bar
-                      data={chartExample3.data}
-                      options={chartExample3.options}
-                    />
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
-            <Col lg="4">
-              <Card className="card-chart">
-                <CardHeader>
-                  <h5 className="card-category">Data</h5>
-                  <CardTitle tag="h3">
-                    <i className="tim-icons icon-send text-success" /> Liquid Precipitation
-                  </CardTitle>
-                </CardHeader>
-                <CardBody>
-                  <div className="chart-area">
-                    <Line
-                      data={chartExample4.data}
-                      options={chartExample4.options}
-                    />
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
-          <Row>
-            <Col lg="6" md="12">
-              <Card className="card-tasks">
-                <CardHeader>
-                  <h6 className="title d-inline">Battery </h6>
-                  <h4> Battery Capacity: 200 KWh</h4>
-                  <h4> Battery Temperature: 20 degree Celcius</h4>
-                  <Row>
-                    <Col lg="6">
-                      <Card className="card-chart">
-                        <CardHeader>
-                          <h5 className="card-category">rate of</h5>
-                          <CardTitle tag="h3">
-                            <i className="tim-icons icon-bell-55 text-info" />{" "}
-                              Charge
-                            </CardTitle>
-                        </CardHeader>
-                        <CardBody>
-                          <div className="chart-area">
-                            <Line
-                              data={chartExample2.data}
-                              options={chartExample2.options}
-                            />
-                          </div>
-                        </CardBody>
-                      </Card>
-                    </Col>
-                    <Col lg="6">
-                      <Card className="card-chart">
-                        <CardHeader>
-                          <h5 className="card-category">rate of</h5>
-                          <CardTitle tag="h3">
-                            <i className="tim-icons icon-bell-55 text-info" />{" "}
-                              Discharge
-                            </CardTitle>
-                        </CardHeader>
-                        <CardBody>
-                          <div className="chart-area">
-                            <Line
-                              data={chartExample2.data}
-                              options={chartExample2.options}
-                            />
-                          </div>
-                        </CardBody>
-                      </Card>
-                    </Col>
-                  </Row>
-                  { 
-                    //<p className="card-category d-inline"> imulationn Result</p>
-                  }
-                    <UncontrolledDropdown>
-                      <DropdownToggle
-                        caret
-                        className="btn-icon"
-                        color="link"
-                        data-toggle="dropdown"
-                        type="button"
-                      >
-                        <i className="tim-icons icon-settings-gear-63" />
-                      </DropdownToggle>
-                      <DropdownMenu aria-labelledby="dropdownMenuLink" right>
-                        <DropdownItem
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
+                  </CardHeader>
+                  <CardBody>
+                    <div className="chart-area">
+                      <Bar
+                        data={chartExample3.data}
+                        options={chartExample3.options}
+                      />
+                    </div>
+                  </CardBody>
+                </Card>
+              </Col>
+              <Col lg="4">
+                <Card className="card-chart">
+                  <CardHeader>
+                    <h5 className="card-category">Data</h5>
+                    <CardTitle tag="h3">
+                      <i className="tim-icons icon-send text-success" /> Liquid Precipitation
+                    </CardTitle>
+                  </CardHeader>
+                  <CardBody>
+                    <div className="chart-area">
+                      <Line
+                        data={chartExample4.data}
+                        options={chartExample4.options}
+                      />
+                    </div>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+            <Row>
+              <Col lg="6" md="12">
+                <Card className="card-tasks">
+                  <CardHeader>
+                    <h6 className="title d-inline">Battery </h6>
+                    <h4> Battery Capacity: {module_nominal_voltage}V </h4>
+                    <h4> Battery Capacity: {battery_capacity}Ah </h4>
+                    <h4> Battery Temperature: 20 degree Celcius</h4>
+                    <Row>
+                      <Col lg="6">
+                        <Card className="card-chart">
+                          <CardHeader>
+                            <h5 className="card-category">rate of</h5>
+                            <CardTitle tag="h3">
+                              <i className="tim-icons icon-bell-55 text-info" />{" "}
+                                Charge
+                              </CardTitle>
+                          </CardHeader>
+                          <CardBody>
+                            <div className="chart-area">
+                              <Line
+                                data={chartExample2.data}
+                                options={chartExample2.options}
+                              />
+                            </div>
+                          </CardBody>
+                        </Card>
+                      </Col>
+                      <Col lg="6">
+                        <Card className="card-chart">
+                          <CardHeader>
+                            <h5 className="card-category">rate of</h5>
+                            <CardTitle tag="h3">
+                              <i className="tim-icons icon-bell-55 text-info" />{" "}
+                                Discharge
+                              </CardTitle>
+                          </CardHeader>
+                          <CardBody>
+                            <div className="chart-area">
+                              <Line
+                                data={chartExample2.data}
+                                options={chartExample2.options}
+                              />
+                            </div>
+                          </CardBody>
+                        </Card>
+                      </Col>
+                    </Row>
+                    { 
+                      //<p className="card-category d-inline"> imulationn Result</p>
+                    }
+                      <UncontrolledDropdown>
+                        <DropdownToggle
+                          caret
+                          className="btn-icon"
+                          color="link"
+                          data-toggle="dropdown"
+                          type="button"
                         >
-                          Action
-                        </DropdownItem>
-                        <DropdownItem
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          Another action
-                        </DropdownItem>
-                        <DropdownItem
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          Something else
-                        </DropdownItem>
-                      </DropdownMenu>
-                    </UncontrolledDropdown>
-                </CardHeader>
-                {
-                //   <CardBody>
-                //   <div className="table-full-width table-responsive">
-                //     <Table>
-                //       <tbody>
-                //         <tr>
-                //           <td>
-                //             <FormGroup check>
-                //               <Label check>
-                //                 <Input defaultValue="" type="checkbox" />
-                //                 <span className="form-check-sign">
-                //                   <span className="check" />
-                //                 </span>
-                //               </Label>
-                //             </FormGroup>
-                //           </td>
-                //           <td>
-                //             <p className="title">Update the Documentation</p>
-                //             <p className="text-muted">
-                //               Dwuamish Head, Seattle, WA 8:47 AM
-                //             </p>
-                //           </td>
-                //           <td className="td-actions text-right">
-                //             <Button
-                //               color="link"
-                //               id="tooltip636901683"
-                //               title=""
-                //               type="button"
-                //             >
-                //               <i className="tim-icons icon-pencil" />
-                //             </Button>
-                //             <UncontrolledTooltip
-                //               delay={0}
-                //               target="tooltip636901683"
-                //               placement="right"
-                //             >
-                //               Edit Task
-                //             </UncontrolledTooltip>
-                //           </td>
-                //         </tr>
-                //         <tr>
-                //           <td>
-                //             <FormGroup check>
-                //               <Label check>
-                //                 <Input
-                //                   defaultChecked
-                //                   defaultValue=""
-                //                   type="checkbox"
-                //                 />
-                //                 <span className="form-check-sign">
-                //                   <span className="check" />
-                //                 </span>
-                //               </Label>
-                //             </FormGroup>
-                //           </td>
-                //           <td>
-                //             <p className="title">GDPR Compliance</p>
-                //             <p className="text-muted">
-                //               The GDPR is a regulation that requires businesses
-                //               to protect the personal data and privacy of Europe
-                //               citizens for transactions that occur within EU
-                //               member states.
-                //             </p>
-                //           </td>
-                //           <td className="td-actions text-right">
-                //             <Button
-                //               color="link"
-                //               id="tooltip457194718"
-                //               title=""
-                //               type="button"
-                //             >
-                //               <i className="tim-icons icon-pencil" />
-                //             </Button>
-                //             <UncontrolledTooltip
-                //               delay={0}
-                //               target="tooltip457194718"
-                //               placement="right"
-                //             >
-                //               Edit Task
-                //             </UncontrolledTooltip>
-                //           </td>
-                //         </tr>
-                //         <tr>
-                //           <td>
-                //             <FormGroup check>
-                //               <Label check>
-                //                 <Input defaultValue="" type="checkbox" />
-                //                 <span className="form-check-sign">
-                //                   <span className="check" />
-                //                 </span>
-                //               </Label>
-                //             </FormGroup>
-                //           </td>
-                //           <td>
-                //             <p className="title">Solve the issues</p>
-                //             <p className="text-muted">
-                //               Fifty percent of all respondents said they would
-                //               be more likely to shop at a company
-                //             </p>
-                //           </td>
-                //           <td className="td-actions text-right">
-                //             <Button
-                //               color="link"
-                //               id="tooltip362404923"
-                //               title=""
-                //               type="button"
-                //             >
-                //               <i className="tim-icons icon-pencil" />
-                //             </Button>
-                //             <UncontrolledTooltip
-                //               delay={0}
-                //               target="tooltip362404923"
-                //               placement="right"
-                //             >
-                //               Edit Task
-                //             </UncontrolledTooltip>
-                //           </td>
-                //         </tr>
-                //         <tr>
-                //           <td>
-                //             <FormGroup check>
-                //               <Label check>
-                //                 <Input defaultValue="" type="checkbox" />
-                //                 <span className="form-check-sign">
-                //                   <span className="check" />
-                //                 </span>
-                //               </Label>
-                //             </FormGroup>
-                //           </td>
-                //           <td>
-                //             <p className="title">Release v2.0.0</p>
-                //             <p className="text-muted">
-                //               Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM
-                //             </p>
-                //           </td>
-                //           <td className="td-actions text-right">
-                //             <Button
-                //               color="link"
-                //               id="tooltip818217463"
-                //               title=""
-                //               type="button"
-                //             >
-                //               <i className="tim-icons icon-pencil" />
-                //             </Button>
-                //             <UncontrolledTooltip
-                //               delay={0}
-                //               target="tooltip818217463"
-                //               placement="right"
-                //             >
-                //               Edit Task
-                //             </UncontrolledTooltip>
-                //           </td>
-                //         </tr>
-                //         <tr>
-                //           <td>
-                //             <FormGroup check>
-                //               <Label check>
-                //                 <Input defaultValue="" type="checkbox" />
-                //                 <span className="form-check-sign">
-                //                   <span className="check" />
-                //                 </span>
-                //               </Label>
-                //             </FormGroup>
-                //           </td>
-                //           <td>
-                //             <p className="title">Export the processed files</p>
-                //             <p className="text-muted">
-                //               The report also shows that consumers will not
-                //               easily forgive a company once a breach exposing
-                //               their personal data occurs.
-                //             </p>
-                //           </td>
-                //           <td className="td-actions text-right">
-                //             <Button
-                //               color="link"
-                //               id="tooltip831835125"
-                //               title=""
-                //               type="button"
-                //             >
-                //               <i className="tim-icons icon-pencil" />
-                //             </Button>
-                //             <UncontrolledTooltip
-                //               delay={0}
-                //               target="tooltip831835125"
-                //               placement="right"
-                //             >
-                //               Edit Task
-                //             </UncontrolledTooltip>
-                //           </td>
-                //         </tr>
-                //         <tr>
-                //           <td>
-                //             <FormGroup check>
-                //               <Label check>
-                //                 <Input defaultValue="" type="checkbox" />
-                //                 <span className="form-check-sign">
-                //                   <span className="check" />
-                //                 </span>
-                //               </Label>
-                //             </FormGroup>
-                //           </td>
-                //           <td>
-                //             <p className="title">Arival at export process</p>
-                //             <p className="text-muted">
-                //               Capitol Hill, Seattle, WA 12:34 AM
-                //             </p>
-                //           </td>
-                //           <td className="td-actions text-right">
-                //             <Button
-                //               color="link"
-                //               id="tooltip217595172"
-                //               title=""
-                //               type="button"
-                //             >
-                //               <i className="tim-icons icon-pencil" />
-                //             </Button>
-                //             <UncontrolledTooltip
-                //               delay={0}
-                //               target="tooltip217595172"
-                //               placement="right"
-                //             >
-                //               Edit Task
-                //             </UncontrolledTooltip>
-                //           </td>
-                //         </tr>
-                //       </tbody>
-                //     </Table>
-                //   </div>
-                // </CardBody>
-              }
-              </Card>
-            </Col>
-            <Col lg="6" md="12">
-              <Card>
-                <CardHeader>
-                  <CardTitle tag="h4">Solar PV| Results</CardTitle>
-                </CardHeader>
-                <CardBody>
-                  <h4> Solar PV Array: 200 KW</h4>
-                  <h4> Charge Controllers: 12V, 10A</h4>
-                  <h4> Inverter Size: 1500VA @ 12V</h4>
-                  <h4> Solar PV Tilt Angle: 20 degrees North</h4>
-                  <h4> Solar PV Tilt Azimuth angle: 20 degrees East</h4>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
-        </div>
-      </>
-    );
+                          <i className="tim-icons icon-settings-gear-63" />
+                        </DropdownToggle>
+                        <DropdownMenu aria-labelledby="dropdownMenuLink" right>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={e => e.preventDefault()}
+                          >
+                            Action
+                          </DropdownItem>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={e => e.preventDefault()}
+                          >
+                            Another action
+                          </DropdownItem>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={e => e.preventDefault()}
+                          >
+                            Something else
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>
+                  </CardHeader>
+                </Card>
+              </Col>
+              <Col lg="6" md="12">
+                <Card>
+                  <CardHeader>
+                    <CardTitle tag="h4">Solar PV | Results</CardTitle>
+                  </CardHeader>
+                  <CardBody>
+                    <div>
+                      <h4> PV system losses : {PV_system_losses} %</h4>
+                      <h4> Daily Ah requirements (System) : {daily_Ah_requirements_plus_losses} Ah</h4>
+                    </div>
+                    <div>
+                      <h4> Daily equivalent sun hours (ESV) : {equivalent_sun_hours} hours</h4>
+                    </div>
+                    <div>
+                      <h4> Total Solar Array Current : {total_solar_array_current}A</h4>
+                      <h4> Charge Controller: 
+                        {PV_nominal_voltage}V, 
+                        {daily_Ah_requirements_plus_losses/10} A
+                      </h4>
+                      <h4> Inverter Size: {(daily_dc_load * 1.2)/100}KVA @ 12V</h4>
+                      <h4> Recommended reserve time : {time_per_day} days</h4>
+                    </div>
+                    <h4> Solar PV Tilt Angle: 20 degrees North</h4>
+                    <h4> Solar PV Tilt Azimuth angle: 20 degrees East</h4>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+          </div>
+        );
+    }
+    catch(err){
+      return <div className="content">
+          <h1 className="center"> Error: Nothing to display! </h1>
+          <h1 className="center"> Please <a href="/admin/solarModel"> Create a new model </a> to see results </h1>
+        </div> 
+    }
   }
 }
 

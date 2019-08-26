@@ -23,6 +23,7 @@ import Map from "views/Map.jsx";
 import TableList from "views/TableList.jsx";
 //import Typography from "views/Typography.jsx";
 import UserProfile from "views/UserProfile.jsx";
+import solarModel from "views/solarModel.jsx";
 
 var routes = [
   {
@@ -34,20 +35,20 @@ var routes = [
     layout: "/admin"
   },
   {
-    // path: "/icons",
-    // name: "Icons",
-    // rtlName: "الرموز",
-    // icon: "tim-icons icon-atom",
-    // component: Icons,
-    // layout: "/admin"
+    path: "/solarModel",
+    name: "Solar Model",
+    rtlName: "الرموز",
+    icon: "tim-icons icon-atom",
+    component: solarModel,
+    layout: "/admin"
   },
   {
-    // path: "/map",
-    // name: "Map",
-    // rtlName: "خرائط",
-    // icon: "tim-icons icon-pin",
-    // component: Map,
-    // layout: "/admin"
+    path: "/map",
+    name: "Map",
+    rtlName: "خرائط",
+    icon: "tim-icons icon-pin",
+    component: Map,
+    layout: "/admin"
   },
   // {
   //   path: "/notifications",
@@ -58,12 +59,12 @@ var routes = [
   //   layout: "/admin"
   // },
   {
-    path: "/user-profile",
-    name: "User Profile",
-    rtlName: "ملف تعريفي للمستخدم",
-    icon: "tim-icons icon-single-02",
-    component: UserProfile,
-    layout: "/admin"
+    // path: "/user-profile",
+    // name: "User Profile",
+    // rtlName: "ملف تعريفي للمستخدم",
+    // icon: "tim-icons icon-single-02",
+    // component: UserProfile,
+    // layout: "/admin"
   },
   {
     // path: "/tables",

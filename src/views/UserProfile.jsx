@@ -81,7 +81,7 @@ class UserProfile extends React.Component {
                         <FormGroup>
                           <label>First Name</label>
                           <Input
-                            defaultValue="Mike"
+                            defaultValue="user"
                             placeholder="Company"
                             type="text"
                           />
@@ -91,7 +91,7 @@ class UserProfile extends React.Component {
                         <FormGroup>
                           <label>Last Name</label>
                           <Input
-                            defaultValue="Andrew"
+                            defaultValue="Last Name"
                             placeholder="Last Name"
                             type="text"
                           />
@@ -115,7 +115,7 @@ class UserProfile extends React.Component {
                         <FormGroup>
                           <label>City</label>
                           <Input
-                            defaultValue="Mike"
+                            defaultValue="Abuja"
                             placeholder="City"
                             type="text"
                           />
@@ -125,7 +125,7 @@ class UserProfile extends React.Component {
                         <FormGroup>
                           <label>Country</label>
                           <Input
-                            defaultValue="Andrew"
+                            defaultValue="Nigeria"
                             placeholder="Country"
                             type="text"
                           />
@@ -177,7 +177,7 @@ class UserProfile extends React.Component {
                         className="avatar"
                         src={require("assets/img/emilyz.jpg")}
                       />
-                      <h5 className="title">Mike Andrew</h5>
+                      <h5 className="title">First Last</h5>
                     </a>
                     <p className="description">Ceo/Co-Founder</p>
                   </div>
