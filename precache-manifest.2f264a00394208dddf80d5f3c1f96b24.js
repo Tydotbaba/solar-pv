@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/solar-pv/static/media/emilyz.9fcf69e5.jpg"
   },
   {
-    "revision": "b68bd317063023a43116",
+    "revision": "c871d3cb78f374f7a660",
     "url": "/solar-pv/static/css/main.815b411d.chunk.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/solar-pv/static/media/react-logo.eb6be414.png"
   },
   {
-    "revision": "b68bd317063023a43116",
-    "url": "/solar-pv/static/js/main.b68bd317.chunk.js"
+    "revision": "c871d3cb78f374f7a660",
+    "url": "/solar-pv/static/js/main.c871d3cb.chunk.js"
   },
   {
     "revision": "5987dd12fea78ce5f97ae601b08ec03c",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/solar-pv/static/media/nucleo.b17a118e.ttf"
   },
   {
-    "revision": "9e1eee19f68e3c803b78f01403ef3c77",
+    "revision": "1c27faf55ceef7ce2c81fb3ce058d79f",
     "url": "/solar-pv/index.html"
   }
 ];
