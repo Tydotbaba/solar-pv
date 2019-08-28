@@ -1,17 +1,17 @@
 {
   "main.css": "/solar-pv/static/css/main.815b411d.chunk.css",
-  "main.js": "/solar-pv/static/js/main.c871d3cb.chunk.js",
-  "main.js.map": "/solar-pv/static/js/main.c871d3cb.chunk.js.map",
+  "main.js": "/solar-pv/static/js/main.3f6fbf67.chunk.js",
+  "main.js.map": "/solar-pv/static/js/main.3f6fbf67.chunk.js.map",
   "static/js/1.900c29df.chunk.js": "/solar-pv/static/js/1.900c29df.chunk.js",
   "static/js/1.900c29df.chunk.js.map": "/solar-pv/static/js/1.900c29df.chunk.js.map",
   "runtime~main.js": "/solar-pv/static/js/runtime~main.f867e780.js",
   "runtime~main.js.map": "/solar-pv/static/js/runtime~main.f867e780.js.map",
   "static/media/anime3.png": "/solar-pv/static/media/anime3.bd6820f1.png",
   "static/media/emilyz.jpg": "/solar-pv/static/media/emilyz.9fcf69e5.jpg",
-  "static/media/nucleo-icons.css": "/solar-pv/static/media/nucleo.b17a118e.ttf",
+  "static/media/nucleo-icons.css": "/solar-pv/static/media/nucleo.5987dd12.woff2",
   "static/media/react-logo.png": "/solar-pv/static/media/react-logo.eb6be414.png",
   "static/css/main.815b411d.chunk.css.map": "/solar-pv/static/css/main.815b411d.chunk.css.map",
   "index.html": "/solar-pv/index.html",
-  "precache-manifest.2f264a00394208dddf80d5f3c1f96b24.js": "/solar-pv/precache-manifest.2f264a00394208dddf80d5f3c1f96b24.js",
+  "precache-manifest.a95e977a58b839dee6baeb36a1030e9c.js": "/solar-pv/precache-manifest.a95e977a58b839dee6baeb36a1030e9c.js",
   "service-worker.js": "/solar-pv/service-worker.js"
 }
