@@ -50,6 +50,43 @@ import {
   chartExample4
 } from "variables/charts.jsx";
 
+let  newData1={
+    labels: [
+      "JAN",
+      "FEB",
+      "MAR",
+      "APR",
+      "MAY",
+      "JUN",
+      "JUL",
+      "AUG",
+      "SEP",
+      "OCT",
+      "NOV",
+      "DEC",
+      "ANN"
+    ],
+    datasets: [
+      {
+        label: "My First dataset",
+        fill: true,
+        // backgroundColor: gradientStroke,
+        borderColor: "#1f8ef1",
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: "#1f8ef1",
+        pointBorderColor: "rgba(255,255,255,0)",
+        pointHoverBackgroundColor: "#1f8ef1",
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 5,
+        data: []
+      }
+    ]
+  }
+
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -62,6 +99,16 @@ class Dashboard extends React.Component {
     this.setState({
       bigChartData: name
     })
+  }
+
+  componentDidMount(){
+    try{
+      const {insolationData} = this.props.location.state
+      newData1.datasets[0].data = insolationData
+    }
+    catch(err){
+
+    }
   }
 
   // componentDidMount () {
@@ -88,6 +135,7 @@ class Dashboard extends React.Component {
         daily_Ah_requirements_plus_losses,
         equivalent_sun_hours,
         total_solar_array_current,
+        insolationData
       } = this.props.location.state;
 
       return (
@@ -105,9 +153,15 @@ class Dashboard extends React.Component {
                   </CardHeader>
                   <CardBody>
                     <div className="chart-area">
-                      <Line
-                        data={chartExample1[this.state.bigChartData]}
+                      {
+                        //console.log('chartExample1 data: ', chartExample1[this.state.bigChartData])
+                        console.log('chartExample1 data: ', insolationData)
+                      }
+                    <Line
+                        data={newData1}
                         options={chartExample1.options}
+                        //redraw = {true}
+                        //ref={(reference) => this.reference = reference}
                       />
                     </div>
                   </CardBody>
@@ -140,7 +194,7 @@ class Dashboard extends React.Component {
                     <h5 className="card-category">Data</h5>
                     <CardTitle tag="h3">
                       <i className="tim-icons icon-delivery-fast text-primary" />{" "}
-                      Relative Humidity
+                      Surface Pressure
                     </CardTitle>
                   </CardHeader>
                   <CardBody>
@@ -158,7 +212,8 @@ class Dashboard extends React.Component {
                   <CardHeader>
                     <h5 className="card-category">Data</h5>
                     <CardTitle tag="h3">
-                      <i className="tim-icons icon-send text-success" /> Liquid Precipitation
+                      <i className="tim-icons icon-send text-success" />
+                      Temp. at 2 meters
                     </CardTitle>
                   </CardHeader>
                   <CardBody>
@@ -276,9 +331,12 @@ class Dashboard extends React.Component {
                         {PV_nominal_voltage}V, 
                         {daily_Ah_requirements_plus_losses/10} A
                       </h4>
-                      <h4> Inverter Size: {(daily_dc_load * 1.2)/100}KVA @ 12V</h4>
+                      <h4> Inverter Size: {(daily_dc_load * 1.2)/1000}KVA @ {module_nominal_voltage}V</h4>
                       <h4> Recommended reserve time : {time_per_day} days</h4>
                     </div>
+                    <h4> Number of Modules in Series: {number_of_modules_in_series}</h4>
+                    <h4> Number of Modules in parallel: {number_of_modules_in_parallel}</h4>
+                    <h4> Total Number of Modules: {number_of_modules}</h4>
                     <h4> Solar PV Tilt Angle: 20 degrees North</h4>
                     <h4> Solar PV Tilt Azimuth angle: 20 degrees East</h4>
                   </CardBody>
@@ -291,7 +349,7 @@ class Dashboard extends React.Component {
     catch(err){
       return <div className="content">
           <h1 className="center"> Error: Nothing to display! </h1>
-          <h1 className="center"> Please <a href="/admin/solarModel"> Create a new model </a> to see results </h1>
+          <h1 className="center"> Please <a href="/"> Create a new model </a> to see results </h1>
         </div> 
     }
   }

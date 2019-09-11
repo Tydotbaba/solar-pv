@@ -46,8 +46,8 @@ let chart1_2_options = {
           zeroLineColor: "opaque"
         },
         ticks: {
-          suggestedMin: 60,
-          suggestedMax: 125,
+          suggestedMin: 0,
+          suggestedMax: 10,
           padding: 20,
           fontColor: "#9a9a9a"
         }
@@ -75,7 +75,7 @@ let chart1_2_options = {
 // // // used inside src/views/Dashboard.jsx
 // #########################################
 let chartExample1 = {
-  data1: canvas => {
+  data1: (canvas, data) => {
     let ctx = canvas.getContext("2d");
 
     let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
@@ -97,11 +97,12 @@ let chartExample1 = {
         "SEP",
         "OCT",
         "NOV",
-        "DEC"
+        "DEC",
+        "ANN"
       ],
       datasets: [
         {
-          label: "My First dataset",
+          label: "Solar Irridiance dataset",
           fill: true,
           backgroundColor: gradientStroke,
           borderColor: "#1f8ef1",
@@ -115,7 +116,7 @@ let chartExample1 = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 5,
-          data: {insolationDataArray}
+          data: data
         }
       ]
     };
@@ -277,7 +278,7 @@ let chartExample3 = {
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,
-          data: [53, 20, 10, 80, 100, 45]
+          data: [99.01, 98.92, 98.90, 98.79, 98.73, 98.74]
         }
       ]
     };
@@ -307,8 +308,8 @@ let chartExample3 = {
             zeroLineColor: "transparent"
           },
           ticks: {
-            suggestedMin: 60,
-            suggestedMax: 120,
+            suggestedMin: 89,
+            suggestedMax: 92,
             padding: 20,
             fontColor: "#9e9e9e"
           }
@@ -362,7 +363,7 @@ const chartExample4 = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: [90, 27, 60, 12, 80]
+          data: [25.27, 25.03, 25.27,  26.09, 25.91, 25.67, 26.53]
         }
       ]
     };
@@ -394,8 +395,8 @@ const chartExample4 = {
             zeroLineColor: "transparent"
           },
           ticks: {
-            suggestedMin: 50,
-            suggestedMax: 125,
+            suggestedMin: 20,
+            suggestedMax: 40,
             padding: 20,
             fontColor: "#9e9e9e"
           }
@@ -428,7 +429,7 @@ let location = {
 
 
 // insolation data array
-let insolationDataArray = []
+//let insolationDataArray = []
 
 
 module.exports = {
@@ -436,6 +437,6 @@ module.exports = {
   chartExample2, // in src/views/Dashboard.jsx
   chartExample3, // in src/views/Dashboard.jsx
   chartExample4, // in src/views/Dashboard.jsx
-  location,
-  insolationDataArray
+  location
+  //insolationDataArray
 };

@@ -34,8 +34,7 @@ import {
 
 // core components
 import {
-  location,
-  insolationDataArray
+  location
 } from "variables/charts.jsx";
 
 class solarModel extends React.Component {
@@ -58,8 +57,10 @@ class solarModel extends React.Component {
       total_solar_array_current: '',
       number_of_modules: '',
       number_of_modules_in_series: '', 
-      number_of_modules_in_parallel: ''
-    };
+      number_of_modules_in_parallel: '',
+      insolationData: []
+      }
+
     //this.calculateModel = this.calculateModel.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -91,19 +92,23 @@ class solarModel extends React.Component {
     fetch(url)
     .then((user) => user.json())
     .then((data) => {
-      const insolationData = data.features[0].properties.parameter.ALLSKY_SFC_SW_DWN
-      const esvData = Object.values(insolationData)
-      console.log(esvData)
-      insolationDataArray = esvData
+      const insolationsData = data.features[0].properties.parameter.ALLSKY_SFC_SW_DWN
+      const esvData = Object.values(insolationsData)
+     
+      this.setState({
+        insolationData: esvData
+      })
+       console.log('insolationDataArray: ', this.state.insolationData)
+       console.log('esvData: ', esvData)
       //calculate  daily esv
-      esv = Object.entries(insolationData).reduce(function (total, pair) {
+      esv = Object.entries(insolationsData).reduce(function (total, pair) {
         const [key, value] = pair;
         if(value > 0){
           total += value;
         }
         return (total)
       }, 0);
-      console.log(insolationData)
+      console.log(insolationsData)
       console.log('esv: ', esv/13)
       //round esv to the nearest whole number
       esv = Math.round(esv/13)
@@ -213,7 +218,7 @@ class solarModel extends React.Component {
                     <Row>
                       <Col className="pr-md-1" md="6">
                         <FormGroup>
-                          <label>Daily DC energy use (for all loads, in KWh)</label>
+                          <label>Daily DC energy use (for all loads, in KW)</label>
                           <Input
                             placeholder="Example: 120"
                             type="text"
