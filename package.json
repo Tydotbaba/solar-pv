@@ -17,7 +17,7 @@
   "homepage": "https://creativetimofficial.github.io/black-dashboard-react/#/dashboard",
   "dependencies": {
     "@types/react": "16.4.16",
-    "bootstrap": "4.1.3",
+    "bootstrap": "4.3.1",
     "chart.js": "^2.7.2",
     "classnames": "2.2.6",
 >>>>>>> 02bd50b90a674b08e936324adc0edd928ef0ea28
